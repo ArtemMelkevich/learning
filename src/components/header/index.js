@@ -3,21 +3,37 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  Button,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
 import styles from './style';
 
-import Icon from 'react-native-vector-icons/Ionicons';
+import { 
+  woxwork,
+  arrowButton,
+} from '../../constants/index'
 
 
-export default class SignIn extends Component {
-  render() {
-    return (
+
+class Header extends Component {
+
+  render(){
+
+    const { title, actionBack } = this.props;
+
+    return(
+      <View>
         <View style={styles.header}>
-            <View style={styles.container}>
-            <Icon name="ios-person" size={30} color="#4F8EF7" />
+          <View style={styles.container}>
+            { title ? arrowButton(actionBack) : woxwork }
+            <View sytle={styles.button}>
+              <Text style={styles.text}> Title </Text>
             </View>
+            <View style={styles.button}/>
+          </View> 
         </View>
+      </View>
     );
   }
 }
+export default Header;

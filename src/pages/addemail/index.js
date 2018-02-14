@@ -6,14 +6,22 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
+import Header from '../../components/header/index';
+
 export default class AddEmail extends Component{
+
+  goBack = () => {
+    this.props.navigation.goBack();
+  }
+   
   render() {
     return (
-        <View >
-            <Text >
-                Screen Add Email
-            </Text>
-        </View>
+      <View >
+          <Header title=' ' actionBack={() => this.goBack()}/>
+          <Text >
+              Screen Add Email
+          </Text>
+      </View>
     );
   }
 }

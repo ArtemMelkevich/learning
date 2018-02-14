@@ -4,11 +4,10 @@ import {
   View
 } from 'react-native';
 
-import  RootStack  from './root';
+import Drawer from '../components/drawer/index';
 
 export default class Root extends Component{ 
-
   render() {
-    return  (<RootStack/>);
+    return  ( <Drawer/> );
   }
 }
