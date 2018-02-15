@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  View
-} from 'react-native';
 
-import Drawer from '../components/drawer/index';
+import RootStack from './root';
 
-export default class Root extends Component{ 
+export default class Root extends Component {
   render() {
-    return  ( <Drawer/> );
+    return (
+      <RootStack />
+    );
   }
 }

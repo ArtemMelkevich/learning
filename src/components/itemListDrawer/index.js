@@ -16,7 +16,6 @@ class ItemListDrawer extends Component {
       title,
       actionGoToSelectScreen
     } = this.props;
-    console.warn(actionGoToSelectScreen);
     return(
       <View style={styles.container}>
         <TouchableOpacity onPress={() => actionGoToSelectScreen()}>

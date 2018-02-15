@@ -1,26 +1,21 @@
 
 import React, { Component } from 'react';
-import {
-  Text,
-  View,
-  Button,
-} from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import PropTypes from 'prop-types';
 
-import Header from '../../components/header/index';
+import Signin from '../../components/signin/index';
 
 export default class SignIn extends Component {
   render() {
     return (
-      <View>
-        <Header title=''/>
-        <Button 
-          title='GO to Add Email'
-          onPress={() => this.props.navigation.navigate('AddEmail')}
-        /> 
-      </View>
+      <Signin navigate={this.props.navigation} />
     );
   }
 }
 
+SignIn.propTypes = {
+  navigation: PropTypes.object,
+};
 
+SignIn.defaultProps = {
+  navigation: {},
+};

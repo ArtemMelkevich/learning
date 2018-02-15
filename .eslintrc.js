@@ -1,13 +1,7 @@
 module.exports = {
-  "parser": "babel-eslint",
-  "extends": "eslint-config-airbnb",
-  "plugins": [
-    "react-native"
-  ],
-  "ecmaFeatures": {
-    "jsx": true
-  },
-  "rules": {
+ "extends": "airbnb",
+ "plugins": [ "babel", "react", "react-native", "jsx-a11y" ],
+ "rules": {
     "react-native/no-unused-styles": 2,
     "react-native/split-platform-components": 2,
     "react-native/no-inline-styles": 2,

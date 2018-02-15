@@ -1,31 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import{
-    Text,
-    View,
-    Image,
-    FlatList,
-    StyleSheet,
+import {
+  View,
+  Image,
+  FlatList,
 } from 'react-native';
-import { DrawerNavigator, NavigationActions } from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
 
 import imgBackArrow from '../../resours/icon/arrow.png';
 import { listButtonsDrawer } from '../../constants/index';
 import ItemListDrawer from '../itemListDrawer/index';
 import styles from './style';
 
-class SideMenu extends Component{
-
-  navigateToScreen = (route) => {
+export default class SideMenu extends Component {
+  navigateToScreen(route) {
     const navigateAction = NavigationActions.navigate({
-      routeName: route
+      routeName: route,
     });
     this.props.navigation.dispatch(navigateAction);
   }
 
-  render(){
-    return(
-      <View style={styles.container}>  
+  render() {
+    return (
+      <View style={styles.container}>
         <View style={styles.icon}>
           <View style={styles.iconCont}>
             <Image
@@ -37,7 +34,7 @@ class SideMenu extends Component{
         <View>
           <FlatList
             data={listButtonsDrawer}
-            renderItem={({item}) => <ItemListDrawer title={item} actionGoToSelectScreen={() => this.navigateToScreen(item)}/>}
+            renderItem={({ item }) => <ItemListDrawer title={item} actionGoToSelectScreen={() => this.navigateToScreen(item)} />}
             keyExtractor={(item, index) => `key-${index}`}
           />
         </View>
@@ -47,7 +44,9 @@ class SideMenu extends Component{
 }
 
 SideMenu.propTypes = {
-  navigation: PropTypes.object
+  navigation: PropTypes.object,
 };
 
-export default SideMenu;
+SideMenu.defaultProps = {
+  navigation: PropTypes.object,
+};

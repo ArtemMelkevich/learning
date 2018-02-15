@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
 import { DrawerNavigator } from 'react-navigation';
 
-import SignIn from '../../pages/signin/index';
-import AddEmail from '../../pages/addemail/index';
-import SideMenu from './presnter';
+import Home from '../../pages/home/index';
+import Profil from '../../pages/profil/index';
+import SideMenu from './presenter';
 
-export default DrawerNavigator ({
-     "Sign in": {
-       screen: SignIn,
-     },
-     "Add email": {
-       screen: AddEmail,
-     }
-   },
-   {
-     initialRouteName: 'Sign in',
-     contentComponent: SideMenu,
-   }    
+export default DrawerNavigator(
+  {
+    Home: {
+      screen: Home,
+    },
+    Profil: {
+      screen: Profil,
+    },
+  },
+  {
+    initialRouteName: 'Home',
+    contentComponent: SideMenu,
+  },
 );

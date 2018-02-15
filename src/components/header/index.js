@@ -3,37 +3,61 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  Image,
-  TouchableOpacity,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import styles from './style';
 
-import { 
+
+import {
   woxwork,
   arrowButton,
-} from '../../constants/index'
+  menuButton,
+} from '../../constants/index';
 
 
+export default class Header extends Component {
+  showElementHeader(title, actionBack, actionOpenDrawer) {
+    switch (title) {
+      case 'back':
+        return arrowButton(actionBack);
 
-class Header extends Component {
+      case 'menu':
+        return menuButton(actionOpenDrawer);
+        // return this.props.navigate.navigate('DrawerOpen');
 
-  render(){
+      default:
+        return woxwork;
+    }
+  }
 
-    const { title, actionBack } = this.props;
-
-    return(
+  render() {
+    const {
+      title,
+      actionBack,
+      actionOpenDrawer,
+    } = this.props;
+    return (
       <View>
         <View style={styles.header}>
           <View style={styles.container}>
-            { title ? arrowButton(actionBack) : woxwork }
+            {
+              this.showElementHeader(title, actionBack, actionOpenDrawer)
+            }
             <View sytle={styles.button}>
               <Text style={styles.text}> Title </Text>
             </View>
-            <View style={styles.button}/>
-          </View> 
+            <View style={styles.button} />
+          </View>
         </View>
       </View>
     );
   }
 }
-export default Header;
+
+Header.propTypes = {
+  navigate: PropTypes.object,
+};
+
+Header.default = {
+  navigate: PropTypes.object,
+};
