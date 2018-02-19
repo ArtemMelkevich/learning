@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Header from '../../Components/Header/index';
+import Header from '../../Components/Header';
 
 export default class AddEmail extends Component {
   goBack() {

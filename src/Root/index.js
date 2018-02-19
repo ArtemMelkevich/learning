@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-
-import AuthRoot from './AuthRoot/index';
-
+// import HomeNavigation from '../Navigation/AuthNavigation';
+import { Text } from 'react-native';
 
 export default class Root extends Component {
   render() {
-    console.warn(AuthRoot);
     return (
-      <AuthRoot />
+      <Text> saasdasd </Text>
     );
   }
 }

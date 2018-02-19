@@ -8,11 +8,17 @@ import {
 import { NavigationActions } from 'react-navigation';
 
 import imgBackArrow from '../../Resours/Icon/arrow.png';
-import { listButtonsDrawer } from '../../Constants/index';
-import ItemListDrawer from '../ItemListDrawer/index';
+import { listButtonsDrawer } from '../../Constants';
+import ItemListDrawer from '../ItemSideMenu';
 import styles from './style';
 
 export default class SideMenu extends Component {
+  setItemList(item) {
+    return (
+      <ItemListDrawer title={item} actionGoToSelectScreen={() => this.navigateToScreen(item)} />
+    );
+  }
+
   navigateToScreen(route) {
     const navigateAction = NavigationActions.navigate({
       routeName: route,
@@ -34,7 +40,7 @@ export default class SideMenu extends Component {
         <View>
           <FlatList
             data={listButtonsDrawer}
-            renderItem={({ item }) => <ItemListDrawer title={item} actionGoToSelectScreen={() => this.navigateToScreen(item)} />}
+            renderItem={({ item }) => this.setItemList(item)}
             keyExtractor={(item, index) => `key-${index}`}
           />
         </View>

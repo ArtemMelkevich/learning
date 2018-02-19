@@ -8,7 +8,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
 
-import { color } from '../../Constants/index';
+import { color } from '../../Constants';
 import styles from './style';
 
 export default class SignIn extends Component {

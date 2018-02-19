@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import FormRegisterEmail from '../../Components/Form/index';
+import FormRegisterEmail from '../../Components/Register';
 
 export default class Register extends Component {
   render() {
