@@ -1,16 +1,12 @@
 import { StackNavigator } from 'react-navigation';
 
-import SignIn from '../pages/signin/index';
-import Home from '../components/drawer/index';
-import Register from '../pages/register/index';
+import SignIn from '../../Pages/HomePage/index';
+import Register from '../../Pages/RegisterPage/index';
 
 const RootStack = StackNavigator(
   {
     SignIn: {
       screen: SignIn,
-    },
-    Home: {
-      screen: Home,
     },
     Register: {
       screen: Register,

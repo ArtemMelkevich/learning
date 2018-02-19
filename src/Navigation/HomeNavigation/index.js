@@ -1,8 +1,8 @@
 import { DrawerNavigator } from 'react-navigation';
 
-import Home from '../../pages/home/index';
-import Profil from '../../pages/profil/index';
-import SideMenu from './presenter';
+import Home from '../../Pages/HomePage';
+import Profil from '../../Pages/ProfilPage';
+import SideMenu from '../../Components/Home';
 
 export default DrawerNavigator(
   {

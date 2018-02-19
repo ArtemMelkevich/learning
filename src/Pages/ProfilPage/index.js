@@ -4,9 +4,9 @@ import {
   Text,
   View,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import PropTypes from 'prop-types';
 
-import Header from '../../components/header/index';
+import Header from '../../Components/Header';
 
 export default class AddEmail extends Component {
   goBack() {
@@ -24,3 +24,11 @@ export default class AddEmail extends Component {
     );
   }
 }
+
+AddEmail.propTypes = {
+  navigation: PropTypes.object,
+};
+
+AddEmail.defaultProps = {
+  navigation: {},
+};

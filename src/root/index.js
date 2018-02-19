@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-
-import RootStack from './root';
+import HomeNavigation from '../Navigation/AuthNavigation';
 
 export default class Root extends Component {
   render() {
     return (
-      <RootStack />
+      <HomeNavigation />
     );
   }
 }

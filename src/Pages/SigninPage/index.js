@@ -1,8 +1,7 @@
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Signin from '../../components/signin/index';
+import Signin from '../../Components/Signin';
 
 export default class SignIn extends Component {
   render() {

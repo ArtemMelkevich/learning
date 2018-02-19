@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import { color } from '../../constants/index';
+import { color } from '../../Constants/index';
 import styles from './style';
 
 
