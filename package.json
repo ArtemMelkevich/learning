@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "apisauce": "^0.14.3",
     "eslint-config-airbnb-base": "^12.1.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -14,8 +15,10 @@
     "react-native-linear-gradient": "^2.4.0",
     "react-native-vector-icons": "4.3.0",
     "react-navigation": "^1.0.3",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-persist": "^5.9.0",
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",

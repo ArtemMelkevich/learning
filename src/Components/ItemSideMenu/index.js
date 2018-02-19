@@ -21,6 +21,11 @@ export default class ItemListDrawer extends Component {
 }
 
 ItemListDrawer.propTypes = {
-  title: PropTypes.string.isRequired,
-  actionGoToSelectScreen: PropTypes.func.isRequired,
+  title: PropTypes.string,
+  actionGoToSelectScreen: PropTypes.func,
+};
+
+ItemListDrawer.defaultProps = {
+  title: '',
+  actionGoToSelectScreen: {},
 };

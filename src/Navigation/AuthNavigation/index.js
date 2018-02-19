@@ -1,7 +1,7 @@
 import { StackNavigator } from 'react-navigation';
 
-import SignIn from '../../Pages/HomePage/index';
-import Register from '../../Pages/RegisterPage/index';
+import SignIn from '../../Pages/SigninPage';
+import Register from '../../Pages/RegisterPage';
 
 const RootStack = StackNavigator(
   {

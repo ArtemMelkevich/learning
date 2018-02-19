@@ -54,5 +54,5 @@ SideMenu.propTypes = {
 };
 
 SideMenu.defaultProps = {
-  navigation: PropTypes.object,
+  navigation: {},
 };
