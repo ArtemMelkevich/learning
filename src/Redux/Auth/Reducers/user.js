@@ -1,12 +1,12 @@
 import {
   SET_DATA_USER,
   CLEAN_DATA_USER,
-} from './types';
+} from '../types';
 
-export default function (state, action) {
+export default function (state = [], action) {
   switch (action.type) {
     case SET_DATA_USER:
-      return Object.assign({}, ...state, action.data);
+      return Object.assign({}, action.data);
     case CLEAN_DATA_USER:
       return [];
     default:

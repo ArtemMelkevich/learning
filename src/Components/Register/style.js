@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  err: {
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 20,
+    color: colors.txt,
+  },
   fieldEmail: {
     padding: 10,
     height: 40,
@@ -32,7 +38,9 @@ const styles = StyleSheet.create({
   txt: {
     color: colors.txt,
   },
-
+  keyAvoid: {
+    flex: 1,
+  },
 });
 
 export default styles;

@@ -4,20 +4,23 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  KeyboardAvoidingView,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import PropTypes from 'prop-types';
 
 import { color } from '../../Constants/index';
 import styles from './style';
 
-export default class SignIn extends Component {
+export default class Register extends Component {
   constructor() {
     super();
     this.state = {
       email: '',
       username: '',
       password: '',
-      password_confirm: '',
+      passwordConfirm: '',
+      err: '',
     };
   }
 
@@ -25,25 +28,25 @@ export default class SignIn extends Component {
     switch (id) {
       case 'email':
         this.setState({
-          email: data,
+          email: `${data}`,
         });
         break;
 
       case 'username':
         this.setState({
-          username: data,
+          username: `${data}`,
         });
         break;
 
       case 'password':
         this.setState({
-          password: data,
+          password: `${data}`,
         });
         break;
 
       case 'confirm':
         this.setState({
-          password_confirm: data,
+          passwordConfirm: `${data}`,
         });
         break;
       default:
@@ -51,48 +54,96 @@ export default class SignIn extends Component {
     }
   }
 
+  showError(text) {
+    this.setState({
+      err: `${text}`,
+    });
+  }
+
+  sendQueryRegistration() {
+    this.props.actionRegistration(
+      this.state.email,
+      this.state.username,
+      this.state.password,
+      this.state.passwordConfirm,
+    );
+  }
+
+  clickSignIn() {
+    if (
+      this.state.email === '' ||
+      this.state.username === '' ||
+      this.state.password === '' ||
+      this.state.passwordConfirm === ''
+    ) {
+      this.showError('Please, filling all fields');
+    } else if (this.state.password !== this.state.passwordConfirm) {
+      this.showError('Password don\'t match');
+    } else {
+      this.sendQueryRegistration();
+    }
+  }
+
   render() {
     return (
-      <LinearGradient
-        colors={color}
-        style={styles.container}
+      <KeyboardAvoidingView
+        style={styles.keyAvoid}
+        behavior="padding"
       >
-        <View style={styles.containerForm}>
-          <View style={styles.from}>
-            <TextInput
-              onChangeText={text => this.setDataUser(text, 'username')}
-              placeholder="username"
-              style={styles.fieldEmail}
-            />
+        <LinearGradient
+          colors={color}
+          style={styles.container}
+        >
+          <View style={styles.containerForm}>
+            <View style={styles.from}>
+              <TextInput
+                onChangeText={text => this.setDataUser(text, 'username')}
+                placeholder="username"
+                style={styles.fieldEmail}
+              />
+            </View>
+            <View style={styles.from}>
+              <TextInput
+                onChangeText={text => this.setDataUser(text, 'email')}
+                placeholder="email"
+                keyboardType="email-address"
+                style={styles.fieldEmail}
+              />
+            </View>
+            <View style={styles.from}>
+              <TextInput
+                onChangeText={text => this.setDataUser(text, 'password')}
+                placeholder="password"
+                secureTextEntry
+                style={styles.fieldEmail}
+              />
+            </View>
+            <View style={styles.from}>
+              <TextInput
+                onChangeText={text => this.setDataUser(text, 'confirm')}
+                placeholder="confirm password"
+                secureTextEntry
+                style={styles.fieldEmail}
+              />
+            </View>
+            <TouchableOpacity
+              onPress={() => this.clickSignIn()}
+              style={styles.buttonNext}
+            >
+              <Text style={styles.txt}> SIGN UP </Text>
+            </TouchableOpacity>
+            <Text style={styles.err}> { this.state.err }</Text>
           </View>
-          <View style={styles.from}>
-            <TextInput
-              onChangeText={text => this.setDataUser(text, 'email')}
-              placeholder="email"
-              style={styles.fieldEmail}
-            />
-          </View>
-          <View style={styles.from}>
-            <TextInput
-              onChangeText={text => this.setDataUser(text, 'password')}
-              placeholder="password"
-              style={styles.fieldEmail}
-            />
-          </View>
-          <View style={styles.from}>
-            <TextInput
-              onChangeText={text => this.setDataUser(text, 'confirm')}
-              placeholder="confirm password"
-              style={styles.fieldEmail}
-            />
-          </View>
-          <TouchableOpacity
-            style={styles.buttonNext}
-          >
-            <Text style={styles.txt}> SIGN UP </Text>
-          </TouchableOpacity>
-        </View>
-      </LinearGradient>
+        </LinearGradient>
+      </KeyboardAvoidingView>
     );
   }
 }
+
+Register.propTypes = {
+  actionRegistration: PropTypes.func,
+};
+
+Register.defaultProps = {
+  actionRegistration: {},
+};
