@@ -1,10 +1,11 @@
 
 import React, { Component } from 'react';
 import {
-  Text,
   View,
 } from 'react-native';
 import PropTypes from 'prop-types';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Header from '../../Components/Header';
 
@@ -17,9 +18,7 @@ export default class AddEmail extends Component {
     return (
       <View >
         <Header title="back" actionBack={() => this.goBack()} />
-        <Text >
-              Screen Add Email
-        </Text>
+        <Icon name="area-chart" />
       </View>
     );
   }
