@@ -1,11 +1,35 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { View } from 'react-native';
 
-import HomeNavigation from '../Navigation/AuthNavigation';
+import AuthNavigation from '../Navigation/AuthNavigation';
+import HomeNavigation from '../Navigation/HomeNavigation';
+import styles from './style';
 
-export default class Root extends Component {
+class Root extends Component {
+  showNeenedStack() {
+    if (this.props.token) {
+      return <HomeNavigation />;
+    }
+    return <AuthNavigation />;
+  }
+
   render() {
     return (
-      <HomeNavigation />
+      <View style={styles.view}>
+        { this.showNeenedStack() }
+      </View>
     );
   }
 }
+
+Root.propTypes = {
+  token: PropTypes.string,
+};
+
+Root.defaultProps = {
+  token: '',
+};
+
+export default connect(state => ({ token: state.token }))(Root);

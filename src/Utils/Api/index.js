@@ -11,28 +11,24 @@ const api = create({
 });
 
 
-export const signUp = (_email, _username, _password, _confirmPassword) => {
-  return api.post(POST_SIGNUP, {
-    email: _email,
-    username: _username,
-    password: _password,
-    password_confirm: _confirmPassword,
-  }, {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-  });
-};
+export const signUp = (_email, _username, _password, _confirmPassword) => api.post(POST_SIGNUP, {
+  email: _email,
+  username: _username,
+  password: _password,
+  password_confirm: _confirmPassword,
+}, {
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+});
 
-export const signIn = (_email, _password) => {
-  return api.post(POST_LOGIN, {
-    email: _email,
-    password: _password,
-  }, {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-  });
-};
+export const signIn = (_email, _password) => api.post(POST_LOGIN, {
+  email: _email,
+  password: _password,
+}, {
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+});

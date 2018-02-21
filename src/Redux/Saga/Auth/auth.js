@@ -32,12 +32,11 @@ function* fetchRegistration(data) {
 function* fetchLogin(data) {
   try {
     const result = yield call(Query.signIn, data.email, data.password);
-    console.log(result.token);
-    if (result.success) {
-      yield put(AuthActionsRedux.setDataUser(result.username));
-      yield put(AuthActionsRedux.setToken(result.token));
-    } else if (result.message) {
-      console.warn(result.massage);
+    if (result.status === 200) {
+      yield put(AuthActionsRedux.setDataUser(result.data.username));
+      yield put(AuthActionsRedux.setToken(result.data.token));
+    } else if (result.data) {
+      console.warn(result.data);
     }
   } catch (error) {
     console.warn('Error', error);
